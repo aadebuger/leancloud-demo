@@ -15,7 +15,7 @@
 
 ## 使用说明
 
-### * 替换 App 信息
+### 替换 App 信息
 
 示例使用的是公共的 app id 和 app key，您可以在`AppDelegate.m`修改成您自己的应用 id 和 key。
 

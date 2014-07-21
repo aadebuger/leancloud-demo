@@ -16,8 +16,8 @@
 #import "Student.h"
 
 #warning 请替换成自己的id和key 这样可以控制台中看到数据变化 https://cn.avoscloud.com/applist.html
-#define AVOSCloudAppID  @"pn9dyhaipu5lpp9da2mb1yw02hhzopjrn3kvxq2xqb2thryr"
-#define AVOSCloudAppKey @"8qx5wdryr9kh38gz3qpom6qvrfz076fkvd9oggzt9uagc5ac"
+#define AVOSCloudAppID  @"ohqhxu3mgoj2eyj6ed02yliytmbes3mwhha8ylnc215h0bgk"
+#define AVOSCloudAppKey @"6j8fuggqkbc5m86b8mp4pf2no170i5m7vmax5iypmi72wldc"
 
 @implementation AppDelegate
 

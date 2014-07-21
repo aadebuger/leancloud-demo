@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Keep Alive</string>
+
+    <string name="main_welcome">欢迎来到保持存活，起个名字就开始。</string>
+    <string name="main_join">开始</string>
+    <string name="main_text_error">起个名字！</string>
+
+    <string name="heartbean_step">把食指放到摄像头上眼睛盯着屏幕深呼吸。</string>
+
+    <string name="action_show_users">打印在线用户</string>
+    <string name="action_trigger_push">触发一次离线消息推送</string>
+    <string name="action_logout">登出</string>
+
+    <string name="confirm_exit">确定退出吗</string>
+
+    <string name="session_opened">你登录了，屋里现在算上你有%d人</string>
+    <string name="session_paused">网络断了，稍安勿燥</string>
+    <string name="session_resumed">网连上了，继续吧</string>
+    <string name="joined_notif">%s 来了</string>
+    <string name="left_notif">%s 走了</string>
+
+    <string name="notif_title">KeepAlive 聊天室有新消息</string>
+
+    <string name="toast_login">登录中</string>
+</resources>

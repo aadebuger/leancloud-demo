@@ -17,4 +17,4 @@
 
 Demo 使用的是公共的 app id 和 app key，您可以在`com.avos.demo.ToDoListApplication`修改成您自己的应用 id 和 key。
 
-不过首选需要在您的数据管理平台手工创建一个 Class，名称设定为`Todo`即可。
+不过首先需要在您的数据管理平台手工创建一个 Class，名称设定为`Todo`即可。

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <ListView
+        android:id="@+id/avoscloud_chat_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="#fff"
+        android:dividerHeight="0dp" >
+    </ListView>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/chatText"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_gravity="bottom"
+            android:layout_margin="2dp"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/sendBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:src="@android:drawable/ic_menu_send" />
+    </LinearLayout>
+
+</FrameLayout>
