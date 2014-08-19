@@ -28,6 +28,26 @@
     }];
 }
 
+-(void)demoUserRegister2{
+    AVUser *user = [AVUser user];
+    user.username=@"XiaoMing";
+    user.password=@"123456";
+    user.email = @"aaaa";
+    user[@"secureCode"] = @"9";
+    
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            [self log:[NSString stringWithFormat:@"用户注册成功 %@",[user description]]];
+            
+            //注册成功后也可以直接通过currentUser获取当前登陆用户
+            [self log:[NSString stringWithFormat:@"当前用户 %@",[[AVUser currentUser] username]]];
+            
+        }else{
+            [self log:[NSString stringWithFormat:@"用户注册出错 %@",[error description]]];
+            [self log:[NSString stringWithFormat:@"当前用户 %@",[[AVUser currentUser] username]]];
+        }
+    }];
+}
 
 -(void)demoUserLogin{
 
