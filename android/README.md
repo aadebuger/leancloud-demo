@@ -9,4 +9,4 @@
 
 
 ##推送Demo 
-![img](http://lzw-picture.qiniudn.com/push1.png)
+![img](https://github.com/lzwjava/plan/blob/master/push.png)
