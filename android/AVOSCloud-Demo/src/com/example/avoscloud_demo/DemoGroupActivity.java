@@ -1,6 +1,5 @@
 package com.example.avoscloud_demo;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.app.ListActivity;
 import android.content.Intent;
@@ -34,8 +33,7 @@ public class DemoGroupActivity extends ListActivity {
     private void setupAVOSCloud(boolean config) {
         if (!config) {
             AVOSCloud.initialize(getApplication(),
-                    "gqd0m4ytyttvluk1tnn0unlvmdg8h4gxsa2ga159nwp85fks",
-                    "7gd2zom3ht3vx6jkcmaamm1p2pkrn8hdye2pn4qjcwux1hl1");
+                    Config.APP_ID,Config.APP_KEY);
             return;
         }
         final Dialog dialog = new Dialog(this);
