@@ -27,7 +27,7 @@
 * 如何使用 `AVQuery` 查询服务器数据
 * 如何为应用加入统计功能，统计相应的事件，从而分析用户喜好
 * 如何给应用加入全局搜索功能，便捷地找到所需要的信息
-* 
+
 ####应用内搜索页
 ![img](https://github.com/lzwjava/plan/blob/master/todo.png)
 
