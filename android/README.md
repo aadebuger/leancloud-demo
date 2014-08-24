@@ -6,3 +6,7 @@
 * [AVOSCloud-Push](./AVOSCloud-Push)，一个演示如何使用消息推送的例子。
 * [AnyTime](./AnyTime)，从开发者“猫咪神”征集到一个应用，主要演示用户系统（注册、登陆等）、数据存储以及消息推送功能。
 * [AVOSCloud-Demo](./AVOSCloud-Demo)，一个综合型的例子，演示了大多数功能，但是UI比较简陋，需要您通过代码学习。
+
+
+##推送Demo 
+![img](http://lzw-picture.qiniudn.com/push1.png)
