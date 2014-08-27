@@ -12,7 +12,6 @@ import com.avos.avoscloud.Session;
 import com.avos.avoscloud.SessionManager;
 import com.avoscloud.beijing.push.demo.keepalive.data.ChatDemoMessage;
 import com.avoscloud.beijing.push.demo.keepalive.data.ChatDemoMessage.MessageType;
-import com.avoscloud.beijing.push.demo.keepalive.util.RecordUtil;
 
 import android.app.Activity;
 import android.graphics.Point;
