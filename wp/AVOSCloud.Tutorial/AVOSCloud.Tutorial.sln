@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AVOSCloud.WP8.Demo", "AVOSCloud.WP8.Demo\AVOSCloud.WP8.Demo.csproj", "{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x86 = Release|x86
+		stage|Any CPU = stage|Any CPU
+		stage|ARM = stage|ARM
+		stage|x86 = stage|x86
+		Test|Any CPU = Test|Any CPU
+		Test|ARM = Test|ARM
+		Test|x86 = Test|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.Debug|ARM.ActiveCfg = Debug|ARM
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.Debug|ARM.Build.0 = Debug|ARM
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.Debug|ARM.Deploy.0 = Debug|ARM
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.Debug|x86.ActiveCfg = Debug|x86
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.Debug|x86.Build.0 = Debug|x86
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.Debug|x86.Deploy.0 = Debug|x86
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.Release|ARM.ActiveCfg = Release|ARM
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.Release|ARM.Build.0 = Release|ARM
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.Release|ARM.Deploy.0 = Release|ARM
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.Release|x86.ActiveCfg = Release|x86
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.Release|x86.Build.0 = Release|x86
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.Release|x86.Deploy.0 = Release|x86
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.stage|Any CPU.ActiveCfg = Release|Any CPU
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.stage|Any CPU.Build.0 = Release|Any CPU
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.stage|Any CPU.Deploy.0 = Release|Any CPU
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.stage|ARM.ActiveCfg = Release|ARM
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.stage|ARM.Build.0 = Release|ARM
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.stage|ARM.Deploy.0 = Release|ARM
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.stage|x86.ActiveCfg = Release|x86
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.stage|x86.Build.0 = Release|x86
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.stage|x86.Deploy.0 = Release|x86
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.Test|Any CPU.ActiveCfg = Release|Any CPU
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.Test|Any CPU.Build.0 = Release|Any CPU
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.Test|Any CPU.Deploy.0 = Release|Any CPU
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.Test|ARM.ActiveCfg = Release|ARM
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.Test|ARM.Build.0 = Release|ARM
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.Test|ARM.Deploy.0 = Release|ARM
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.Test|x86.ActiveCfg = Release|x86
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.Test|x86.Build.0 = Release|x86
+		{FD847A73-68FE-45E5-99F7-E5CAB58B0E59}.Test|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
