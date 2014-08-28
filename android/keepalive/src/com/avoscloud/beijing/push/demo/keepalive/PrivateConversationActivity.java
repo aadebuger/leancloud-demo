@@ -32,7 +32,6 @@ public class PrivateConversationActivity extends Activity
 
   String targetPeerId;
   private ImageButton sendBtn;
-  private ImageButton addBtn;
   private EditText composeZone;
   String currentName;
   String selfId;
@@ -55,23 +54,11 @@ public class PrivateConversationActivity extends Activity
     adapter = new ChatDataAdapter(this, messages);
     chatList.setAdapter(adapter);
     sendBtn = (ImageButton) this.findViewById(R.id.sendBtn);
-    addBtn = (ImageButton) this.findViewById(R.id.chatPlus);
     composeZone = (EditText) this.findViewById(R.id.chatText);
     selfId = AVInstallation.getCurrentInstallation().getInstallationId();
     currentName = HTBApplication.lookupname(selfId);
     session = SessionManager.getInstance(selfId);
     sendBtn.setOnClickListener(this);
-
-    addBtn.setOnClickListener(new OnClickListener() {
-
-      @Override
-      public void onClick(View v) {
-        Point p = new Point(0, 0);
-
-        new RecordUtil(PrivateConversationActivity.this).showRecordWindows(p, null);
-      }
-    });
-
     if (!AVUtils.isBlankString(getIntent().getExtras()
         .getString(Session.AV_SESSION_INTENT_DATA_KEY))) {
       String msg = getIntent().getExtras().getString(Session.AV_SESSION_INTENT_DATA_KEY);
