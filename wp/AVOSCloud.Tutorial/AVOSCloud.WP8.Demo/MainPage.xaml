@@ -1,0 +1,114 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="AVOSCloud.WP8.Demo.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignData SampleData/MainViewModelSampleData.xaml}"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+
+        <!-- LOCALIZATION NOTE:
+            To localize the displayed strings copy their values to appropriately named
+            keys in the app's neutral language resource file (AppResources.resx) then
+            replace the hard-coded text value between the attributes' quotation marks
+            with the binding clause whose path points to that string name.
+
+            For example:
+
+                Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}"
+
+            This binding points to the template's string resource named "ApplicationTitle".
+
+            Adding supported languages in the Project Properties tab will create a
+            new resx file per language that can carry the translated values of your
+            UI strings. The binding in these examples will cause the value of the
+            attributes to be drawn from the .resx file that matches the
+            CurrentUICulture of the app at run time.
+         -->
+
+        <!--Pivot Control-->
+        <phone:Pivot Title="AVOS Cloud Tutorial for WP" >
+            <!--Pivot item one-->
+            <phone:PivotItem Header="AVObject">
+                <Grid HorizontalAlignment="Left" Height="593" VerticalAlignment="Top" Width="456" ShowGridLines="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBox x:Name="txb_playerName" HorizontalAlignment="Left" Height="72" Margin="158,10,0,0" TextWrapping="Wrap" Text="James" VerticalAlignment="Top" Width="288"/>
+                    <Button Content="添加AVObject" HorizontalAlignment="Left" Margin="158,139,0,0" VerticalAlignment="Top" Click="Button_Click" Grid.RowSpan="2" Width="288"/>
+                    <Button x:Name="btn_queryTutorial" Content="查询" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="291" Margin="0,126,0,0"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="26,35,0,0" TextWrapping="Wrap" Text="Player Name" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="26,107,0,0" TextWrapping="Wrap" Text="Age" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txb_age" HorizontalAlignment="Left" Height="72" Margin="158,82,0,0" TextWrapping="Wrap" Text="24" VerticalAlignment="Top" Width="288"/>
+                    <Button x:Name="btn_goToRelationTutorial" Content="AVObject的关系向导" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="291" Margin="0,105,0,0" Click="btn_goToRelationTutorial_Click"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="AVObject之间比较类似于传统关系型数据库中的关系，但是在AVOS Cloud 的世界里，某一个被关联的对象可以将它的引用作为某一个对象的一个字段储存在AVOS Cloud中。" VerticalAlignment="Top" Grid.Row="2"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="查询是AVOS Cloud SDK提供的类似于传统sql 查询的一套接口，但是sdk 在接口上进行了友好的封装，详细的请查看AVOS Cloud .NET 的相关文档。" VerticalAlignment="Top" Width="421"/>
+                </Grid>
+
+            </phone:PivotItem>
+
+            <!--Pivot item two-->
+            <phone:PivotItem Header="AVFile" >
+                <Grid HorizontalAlignment="Left" Height="571" Margin="10,22,0,0" VerticalAlignment="Top" Width="426">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBox x:Name="txb_word" HorizontalAlignment="Left" Height="72" Margin="0,10,0,0" TextWrapping="Wrap" Text="I love AVOS Cloud!" VerticalAlignment="Top" Width="426"/>
+                    <Button Content="Save as txt file to AVOS Cloud" HorizontalAlignment="Left" Margin="0,87,0,0" VerticalAlignment="Top" Width="406" Click="Button_Click_2"/>
+                    <Button Content="Upload local file" HorizontalAlignment="Left" Margin="0,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="406" Click="Button_Click_4"/>
+                    <Button Content="Select photos" HorizontalAlignment="Left" Margin="0,82,0,0" Grid.Row="1" VerticalAlignment="Top" Height="109" Width="406" Click="Button_Click_5"/>
+                </Grid>
+                <!--Double line list no text wrapping-->
+                <!--<phone:LongListSelector Margin="0,0,-12,0" ItemsSource="{Binding Items}">
+                    <phone:LongListSelector.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="0,0,0,17">
+                                <TextBlock Text="{Binding LineOne}" TextWrapping="NoWrap" Margin="12,0,0,0" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                                <TextBlock Text="{Binding LineThree}" TextWrapping="NoWrap" Margin="12,-6,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </phone:LongListSelector.ItemTemplate>
+                </phone:LongListSelector>-->
+            </phone:PivotItem>
+
+            <phone:PivotItem Header="SMSCode">
+                <ScrollViewer>
+                    <StackPanel>
+                        <TextBox x:Name="txb_phone" TextWrapping="Wrap" Text="138xxxxxxxx"/>
+                        <Button x:Name="btn_sendSMSCode" Content="Send" VerticalAlignment="Top" Width="454" Click="btn_sendSMSCode_Click"/>
+                        <TextBox x:Name="txb_appName" HorizontalAlignment="Left" TextWrapping="Wrap" Width="455" Text="Demo应用"/>
+                        <TextBox x:Name="txb_operationName" TextWrapping="Wrap" Text="付款业务"  Width="454" />
+                        <TextBox x:Name="txb_ttl" HorizontalAlignment="Left" Height="72" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="456"/>
+                        <Button Content="SendWithParamters" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="456" Click="Button_Click_3"/>
+                        <TextBox x:Name="txb_smsCode" Height="72" TextWrapping="Wrap" Text="123456" Width="456"/>
+                        <Button x:Name="btn_Verify" Content="Verify" Click="btn_Verify_Click"/>
+
+                    </StackPanel>
+                </ScrollViewer>
+            </phone:PivotItem>
+        </phone:Pivot>
+
+        <!--Uncomment to see an alignment grid to help ensure your controls are
+            aligned on common boundaries.  The image has a top margin of -32px to
+            account for the System Tray. Set this to 0 (or remove the margin altogether)
+            if the System Tray is hidden.
+
+            Before shipping remove this XAML and the image itself.-->
+        <!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0,-32,0,0" Grid.Row="0" IsHitTestVisible="False" />-->
+    </Grid>
+
+</phone:PhoneApplicationPage>
