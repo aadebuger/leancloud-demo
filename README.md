@@ -5,7 +5,7 @@
 
 这些项目来源于 AVOS Cloud 工程师，以及 AVOS Cloud 开发者的贡献。
 
-分成了四个独立的项目
+现在分成了四个独立的项目，可按照您的需求来下载
 
 * https://github.com/avoscloud/Android-SDK-demos
 * https://github.com/avoscloud/iOS-SDK-demos
