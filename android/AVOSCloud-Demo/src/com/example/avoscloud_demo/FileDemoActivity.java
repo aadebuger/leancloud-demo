@@ -1,20 +1,12 @@
 package com.example.avoscloud_demo;
 
 import android.app.Dialog;
-import android.os.Bundle;
-import android.view.Window;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
 import ar.com.daidalos.afiledialog.FileChooserDialog;
 import com.avos.avoscloud.*;
-import junit.framework.Assert;
 
-import java.io.Closeable;
 import java.io.File;
-import java.io.InputStream;
 import java.io.RandomAccessFile;
-import java.util.List;
-import java.util.Random;
 
 public class FileDemoActivity extends DemoBaseActivity {
 

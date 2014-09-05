@@ -27,7 +27,8 @@ public class CustomReceiver extends BroadcastReceiver {
                 .setSmallIcon(R.drawable.notification)
                 .setContentTitle(
                     AVOSCloud.applicationContext.getResources().getString(R.string.app_name))
-                .setContentText(message);
+                .setContentText(message)
+                .setTicker(message);
         mBuilder.setContentIntent(pendingIntent);
         mBuilder.setAutoCancel(true);
 
