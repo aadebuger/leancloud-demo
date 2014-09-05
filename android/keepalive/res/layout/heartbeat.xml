@@ -9,15 +9,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal" >
-
-        <ImageButton
-            android:id="@+id/chatPlus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:src="@android:drawable/ic_input_add" >
-        </ImageButton>
-
         <EditText
             android:id="@+id/chatText"
             android:layout_width="0dp"
