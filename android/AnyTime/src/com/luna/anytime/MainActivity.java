@@ -1,7 +1,5 @@
 package com.luna.anytime;
 
-import com.avos.avoscloud.AVUser;
-
 import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.FragmentTransaction;
@@ -122,13 +120,13 @@ public class MainActivity extends FragmentActivity implements
 	}
 
 	private void Logout() {
-		AVUser.logOut();
-		Intent loginIntent = new Intent(activity, LoginActivity.class);
+    AVService.logout();
+    Intent loginIntent = new Intent(activity, LoginActivity.class);
 		startActivity(loginIntent);
 		activity.finish();
 	}
 
-	@Override
+  @Override
 	public void onTabSelected(ActionBar.Tab tab,
 			FragmentTransaction fragmentTransaction) {
 		// When the given tab is selected, switch to the corresponding page in

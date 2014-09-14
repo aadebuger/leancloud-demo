@@ -27,7 +27,8 @@ public class KeepAliveSignatureFactory implements SignatureFactory {
 
   private final String selfPeerId;
 
-  private static final String SUPER_POWER_KEY = "Your app master key";
+  //请用你 App 的master key
+  private static final String SUPER_POWER_KEY = "7it9yc8ixcyjzgbgz61gbdzclm098mbuxqoizmuar42bq7f1";
 
   public KeepAliveSignatureFactory(String appId, String selfPeerId) {
     this.appId = appId;
@@ -118,22 +119,13 @@ public class KeepAliveSignatureFactory implements SignatureFactory {
 
     List<String> signatureElements = new ArrayList<String>();
     signatureElements.add(appId);
-
     signatureElements.add(selfPeerId);
-
-
-    Collections.sort(watchIdsCopy);
-
     signatureElements.add(groupId);
-
-    signatureElements.add(action);
-
+    Collections.sort(watchIdsCopy);
     signatureElements.add(TextUtils.join(":", watchIdsCopy));
-
     signatureElements.add(String.valueOf(timestamp));
-
     signatureElements.add(nonce);
-
+    signatureElements.add(action);
     /*
      * 此处请一定不要直接复制黏贴到您的代码中
      * 

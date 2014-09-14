@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 
+import android.util.Log;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.avos.avoscloud.AVMessage;
@@ -24,7 +25,6 @@ public class ChatDemoMessageReceiver extends AVMessageReceiver {
 
   @Override
   public void onSessionOpen(Context context, Session session) {
-
     this.sendOpenIntent(context);
   }
 
@@ -40,6 +40,7 @@ public class ChatDemoMessageReceiver extends AVMessageReceiver {
 
   @Override
   public void onMessage(Context context, Session session, AVMessage msg) {
+    LogUtil.avlog.d("onMessageReceived "+msg.getMessage());
     JSONObject j = JSONObject.parseObject(msg.getMessage());
     ChatDemoMessage message = new ChatDemoMessage();
     MessageListener listener = sessionMessageDispatchers.get(msg.getFromPeerId());
@@ -90,7 +91,8 @@ public class ChatDemoMessageReceiver extends AVMessageReceiver {
 
   @Override
   public void onMessageSent(Context context, Session session, AVMessage msg) {
-    LogUtil.avlog.d("message sent :" + msg);
+    LogUtil.avlog.d("message fromPeerId="+msg.getFromPeerId());
+    LogUtil.avlog.d("message to peerIds="+msg.getToPeerIds());
   }
 
   @Override

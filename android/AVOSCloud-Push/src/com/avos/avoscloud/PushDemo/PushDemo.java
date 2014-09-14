@@ -31,7 +31,7 @@ public class PushDemo extends Activity {
 
     final TextView t = (TextView) this.findViewById(R.id.mylabel);
     // 显示的设备的 installationId，用于推送的设备标示
-    t.setText("id: " + AVInstallation.getCurrentInstallation().getInstallationId());
+    t.setText("这个设备的 id: " + AVInstallation.getCurrentInstallation().getInstallationId());
     // 保存 installation 到服务器
     AVInstallation.getCurrentInstallation().saveInBackground(new SaveCallback() {
       @Override

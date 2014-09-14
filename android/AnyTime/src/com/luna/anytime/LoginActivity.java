@@ -2,10 +2,8 @@ package com.luna.anytime;
 
 import com.avos.avoscloud.AVAnalytics;
 import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVInstallation;
 import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.LogInCallback;
-import com.avos.avoscloud.PushService;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -33,9 +31,7 @@ public class LoginActivity extends AnyTimeActivity {
 		setContentView(R.layout.activity_login);
 		AVAnalytics.trackAppOpened(getIntent());
 
-		PushService.setDefaultPushCallback(this, LoginActivity.class);
-		PushService.subscribe(this, "public", LoginActivity.class);
-		AVInstallation.getCurrentInstallation().saveInBackground();
+    AVService.initPushService(this);
 
 		loginButton = (Button) findViewById(R.id.button_login);
 		registerButton = (Button) findViewById(R.id.button_register);
@@ -54,23 +50,24 @@ public class LoginActivity extends AnyTimeActivity {
 		forgetPasswordButton.setOnClickListener(forgetPasswordListener);
 	}
 
-	OnClickListener loginListener = new OnClickListener() {
+  OnClickListener loginListener = new OnClickListener() {
 
 		@SuppressLint("NewApi")
 		@SuppressWarnings({ "unchecked", "rawtypes" })
 		@Override
 		public void onClick(View arg0) {
-			if (userNameEditText.getText().toString().isEmpty()) {
+      String username = userNameEditText.getText().toString();
+      if (username.isEmpty()) {
 				showUserNameEmptyError();
 				return;
 			}
-			if (userPasswordEditText.getText().toString().isEmpty()) {
+			if (password().isEmpty()) {
 				showUserPasswordEmptyError();
 				return;
 			}
 			progressDialogShow();
-			AVUser.logInInBackground(userNameEditText.getText().toString(),
-					userPasswordEditText.getText().toString(),
+			AVUser.logInInBackground(username,
+          password(),
 					new LogInCallback() {
 						public void done(AVUser user, AVException e) {
 							if (user != null) {
@@ -86,7 +83,11 @@ public class LoginActivity extends AnyTimeActivity {
 						}
 					});
 		}
-	};
+
+    private String password() {
+      return userPasswordEditText.getText().toString();
+    }
+  };
 
 	OnClickListener forgetPasswordListener = new OnClickListener() {
 		

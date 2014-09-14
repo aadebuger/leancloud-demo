@@ -1,7 +1,6 @@
 package com.avos.demo;
 
 
-import java.util.Collections;
 import java.util.List;
 
 import android.app.AlertDialog;
@@ -13,7 +12,6 @@ import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
@@ -26,8 +24,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.avos.avoscloud.*;
-import com.avos.avoscloud.search.AVSearchQuery;
-
 
 
 public class ToDoListActivity extends ListActivity {
@@ -41,25 +37,14 @@ public class ToDoListActivity extends ListActivity {
   private volatile List<Todo> todos;
   private Dialog progressDialog;
 
-  private static final String TAG = ToDoListActivity.class.getName();
+  public static final String TAG = ToDoListActivity.class.getName();
   private EditText searchInput;
 
   private class RemoteDataTask extends AsyncTask<Void, Void, Void> {
     // Override this method to do custom remote calls
     @Override
     protected Void doInBackground(Void... params) {
-      // 查询当前Todo列表
-      AVQuery<Todo> query = AVQuery.getQuery(Todo.class);
-      // 按照更新时间降序排序
-      query.orderByDescending("updatedAt");
-      // 最大返回1000条
-      query.limit(1000);
-      try {
-        todos = query.find();
-      } catch (AVException exception) {
-        Log.e(TAG, "Query todos failed.", exception);
-        todos = Collections.emptyList();
-      }
+      todos= AVService.findTodos();
       return null;
     }
 
@@ -192,8 +177,7 @@ public class ToDoListActivity extends ListActivity {
               public void onClick(DialogInterface dialog, int which) {
                 String inputSearch = searchInput.getText().toString();
                 if (!AVUtils.isBlankString(inputSearch)) {
-                  AVSearchQuery searchQuery = new AVSearchQuery(inputSearch);
-                  searchQuery.search();
+                  AVService.searchQuery(inputSearch);
                 }
               }
             }).setNegativeButton("取消", null).show();
@@ -212,5 +196,4 @@ public class ToDoListActivity extends ListActivity {
     i.putExtra("objectId", todos.get(position).getObjectId());
     startActivityForResult(i, ACTIVITY_EDIT);
   }
-
 }

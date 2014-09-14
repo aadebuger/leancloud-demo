@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
-import com.avos.avoscloud.AVQuery;
 import com.avos.avoscloud.FindCallback;
 import com.luna.anytime.adapter.AnytimeExpandableListAdapter;
 import com.luna.anytime.data.DoingListData;
@@ -75,60 +74,57 @@ public class DoingListFragment extends Fragment {
 	};
 
 	private void LoadingData() {
-		AVQuery<AVObject> query = new AVQuery<AVObject>("DoingListGroup");
-		query.orderByAscending("Index");
-		query.findInBackground(new FindCallback<AVObject>() {
-			@Override
-			public void done(List<AVObject> avObjects, AVException e) {
-				if (e == null) {
-					for (AVObject avo : avObjects) {
-						mDoingListData.add(new DoingListData(avo.getObjectId(),
-								avo.getString("GroupName")));
-					}
-					mHandler.obtainMessage(1).sendToTarget();
-					adapter.notifyDataSetChanged();
-				} else {
-					ERROR();
-				}
-			}
-		});
+    FindCallback<AVObject> findCallback = new FindCallback<AVObject>() {
+      @Override
+      public void done(List<AVObject> avObjects, AVException e) {
+        if (e == null) {
+          for (AVObject avo : avObjects) {
+            mDoingListData.add(new DoingListData(avo.getObjectId(),
+                avo.getString("GroupName")));
+          }
+          mHandler.obtainMessage(1).sendToTarget();
+          adapter.notifyDataSetChanged();
+        } else {
+          ERROR();
+        }
+      }
+    };
+    AVService.findDoingListGroup(findCallback);
 	}
 
-	private void ERROR() {
+  private void ERROR() {
 		messageText.setText(getString(R.string.doing_list_error_loading));
 		expandableListView.setVisibility(View.INVISIBLE);
 	}
 
 	private void SetChildrenList(final String groupObjectId) {
-		AVQuery<AVObject> query = new AVQuery<AVObject>("DoingListChild");
-		query.orderByAscending("Index");
-		query.whereEqualTo("parentObjectId", groupObjectId);
-		query.findInBackground(new FindCallback<AVObject>() {
-			@Override
-			public void done(List<AVObject> avObjects, AVException e) {
-				if (e == null) {
-					ArrayList<DoingListData> childrenList = new ArrayList<DoingListData>();
-					for (AVObject avo : avObjects) {
-						childrenList.add(new DoingListData(avo.getObjectId(),
-								avo.getString("ChildName")));
-					}
-					for (DoingListData dld : mDoingListData) {
-						if (dld.objectId.equals(groupObjectId)) {
-							dld.doingListData = childrenList;
-						}
-					}
-					adapter.setGroups(mDoingListData);
-					expandableListView.setVisibility(View.VISIBLE);
-					messageText.setVisibility(View.INVISIBLE);
-					adapter.notifyDataSetChanged();
-				} else {
-					ERROR();
-				}
-			}
-		});
+    FindCallback<AVObject> findCallback=new FindCallback<AVObject>() {
+      @Override
+      public void done(List<AVObject> avObjects, AVException e) {
+        if (e == null) {
+          ArrayList<DoingListData> childrenList = new ArrayList<DoingListData>();
+          for (AVObject avo : avObjects) {
+            childrenList.add(new DoingListData(avo.getObjectId(),
+                avo.getString("ChildName")));
+          }
+          for (DoingListData dld : mDoingListData) {
+            if (dld.objectId.equals(groupObjectId)) {
+              dld.doingListData = childrenList;
+            }
+          }
+          adapter.setGroups(mDoingListData);
+          expandableListView.setVisibility(View.VISIBLE);
+          messageText.setVisibility(View.INVISIBLE);
+          adapter.notifyDataSetChanged();
+        } else {
+          ERROR();
+        }
+      }
+    };
+    AVService.findChildrenList(groupObjectId, findCallback);
 	}
 
-	@SuppressLint("HandlerLeak")
+  @SuppressLint("HandlerLeak")
 	private Handler mHandler = new Handler() {
 		public void handleMessage(Message msg) {
 			if (1 == msg.what) {

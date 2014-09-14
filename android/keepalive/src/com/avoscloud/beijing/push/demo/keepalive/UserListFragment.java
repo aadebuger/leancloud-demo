@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+import android.util.Log;
 import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVInstallation;
 import com.avos.avoscloud.AVObject;
@@ -50,9 +51,8 @@ public class UserListFragment extends Fragment {
     // 取出所有的在线用户，显示出来
     // 如果您也想通过_Installation这张表来作为PeerId的根据，请通过管理界面打开_Installation的查找权限.
     // 默认系统不开放公开的查找权限
-
+    aviq.orderByDescending("updatedAt");
     aviq.whereEqualTo("valid", true).findInBackground(new FindCallback<AVObject>() {
-
       @Override
       public void done(List<AVObject> parseObjects, AVException parseException) {
         if (parseException == null) {

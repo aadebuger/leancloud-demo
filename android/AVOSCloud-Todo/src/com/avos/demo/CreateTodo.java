@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +14,6 @@ import com.avos.avoscloud.AVException;
 import com.avos.avoscloud.AVObject;
 import com.avos.avoscloud.GetCallback;
 import com.avos.avoscloud.SaveCallback;
-import com.avos.demo.R;
 
 public class CreateTodo extends Activity {
 
@@ -55,10 +53,7 @@ public class CreateTodo extends Activity {
       if (index > 0) {
         // 获取objectId
         objectId = path.substring(index + 1);
-        Todo todo = new Todo();
-        todo.setObjectId(objectId);
-        // 通过Fetch获取content内容
-        todo.fetchInBackground(new GetCallback<AVObject>() {
+        GetCallback<AVObject> getCallback=new GetCallback<AVObject>() {
           @Override
           public void done(AVObject todo, AVException arg1) {
             if (todo != null) {
@@ -68,7 +63,8 @@ public class CreateTodo extends Activity {
               }
             }
           }
-        });
+        };
+        AVService.fetchTodoById(objectId, getCallback);
       }
     } else {
       // 通过ListView点击打开
@@ -86,14 +82,7 @@ public class CreateTodo extends Activity {
     Button confirmButton = (Button) findViewById(R.id.confirm);
     confirmButton.setOnClickListener(new View.OnClickListener() {
       public void onClick(View view) {
-        final Todo todo = new Todo();
-        if (!TextUtils.isEmpty(objectId)) {
-          // 如果存在objectId，保存会变成更新操作。
-          todo.setObjectId(objectId);
-        }
-        todo.setContent(contentText.getText().toString());
-        // 异步保存
-        todo.saveInBackground(new SaveCallback() {
+        SaveCallback saveCallback=new SaveCallback() {
           @Override
           public void done(AVException e) {
             // done方法一定在UI线程执行
@@ -107,7 +96,10 @@ public class CreateTodo extends Activity {
             setResult(RESULT_OK, intent);
             finish();
           }
-        });
+        };
+        String content = contentText.getText().toString();
+
+        AVService.createOrUpdateTodo(objectId, content, saveCallback);
       }
     });
   }

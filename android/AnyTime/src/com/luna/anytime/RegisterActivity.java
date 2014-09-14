@@ -1,7 +1,6 @@
 package com.luna.anytime;
 
 import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.SignUpCallback;
 
 import android.annotation.SuppressLint;
@@ -80,40 +79,41 @@ public class RegisterActivity extends AnyTimeActivity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	private void register() {
-		AVUser user = new AVUser();
-		user.setUsername(userName.getText().toString());
-		user.setPassword(userPassword.getText().toString());
-		user.setEmail(userEmail.getText().toString());
-		user.signUpInBackground(new SignUpCallback() {
-			public void done(AVException e) {
-				progressDialogDismiss();
-				if (e == null) {
-					showRegisterSuccess();
-					Intent mainIntent = new Intent(activity, MainActivity.class);
-					startActivity(mainIntent);
-					activity.finish();
-				} else {
-					switch (e.getCode()) {
-					case 202:
-						showError(activity
-								.getString(R.string.error_register_user_name_repeat));
-						break;
-					case 203:
-						showError(activity
-								.getString(R.string.error_register_email_repeat));
-						break;
-					default:
-						showError(activity
-								.getString(R.string.network_error));
-						break;
-					}
-				}
-			}
-		});
+	public void register() {
+    SignUpCallback signUpCallback = new SignUpCallback() {
+      public void done(AVException e) {
+        progressDialogDismiss();
+        if (e == null) {
+          showRegisterSuccess();
+          Intent mainIntent = new Intent(activity, MainActivity.class);
+          startActivity(mainIntent);
+          activity.finish();
+        } else {
+          switch (e.getCode()) {
+            case 202:
+              showError(activity
+                  .getString(R.string.error_register_user_name_repeat));
+              break;
+            case 203:
+              showError(activity
+                  .getString(R.string.error_register_email_repeat));
+              break;
+            default:
+              showError(activity
+                  .getString(R.string.network_error));
+              break;
+          }
+        }
+      }
+    };
+    String username = userName.getText().toString();
+    String password = userPassword.getText().toString();
+    String email = userEmail.getText().toString();
+
+    AVService.signUp(username, password, email, signUpCallback);
 	}
 
-	private void progressDialogDismiss() {
+  private void progressDialogDismiss() {
 		if (progressDialog != null)
 			progressDialog.dismiss();
 	}

@@ -4,6 +4,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 
 import android.app.Application;
+import android.util.Log;
 import com.avos.avoscloud.AVInstallation;
 import com.avos.avoscloud.AVOSCloud;
 import com.avos.avoscloud.LogUtil;
@@ -23,7 +24,6 @@ public class HTBApplication extends Application {
     // 必需：初始化你的appid和appkey，保存installationid
     AVOSCloud.initialize(this, "2mw1d92dmi46d1rluolgj96zn8wk7fe98g0v2z0laksj2ifp",
         "i5gxt9tgr80vbavd790hhlfmmphpl7052iiirg379p14rwsu");
-    AVOSCloud.showInternalDebugLog();
     AVInstallation.getCurrentInstallation().saveInBackground();
     PushService.setDefaultPushCallback(this, MainActivity.class);
 
@@ -36,7 +36,6 @@ public class HTBApplication extends Application {
     } catch (Exception e) {
       LogUtil.avlog.i("failed enable avoscloud logs");
     }
-
   }
 
   public static String lookupname(String peerId) {
@@ -46,5 +45,4 @@ public class HTBApplication extends Application {
   public static void registerLocalNameCache(String peerId, String name) {
     userNameCache.put(peerId, name);
   }
-
 }

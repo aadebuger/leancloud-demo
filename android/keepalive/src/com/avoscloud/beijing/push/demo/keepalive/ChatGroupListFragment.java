@@ -125,7 +125,10 @@ public class ChatGroupListFragment extends Fragment {
           Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256));
 
       holder.avatar.setBackgroundColor(avatarColor);
-      holder.groupId.setText(this.getItem(position));
+      String item = this.getItem(position);
+      int len=item.length();
+      item=item.substring(len-3,len);
+      holder.groupId.setText(item);
 
       return convertView;
     }

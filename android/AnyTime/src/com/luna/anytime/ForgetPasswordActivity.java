@@ -1,7 +1,6 @@
 package com.luna.anytime;
 
 import com.avos.avoscloud.AVException;
-import com.avos.avoscloud.AVUser;
 import com.avos.avoscloud.RequestPasswordResetCallback;
 
 import android.content.Intent;
@@ -32,32 +31,34 @@ public class ForgetPasswordActivity extends AnyTimeActivity {
 
 		@Override
 		public void onClick(View v) {
-			if (emailText.getText().toString() != null) {
-				AVUser.requestPasswordResetInBackground(emailText.getText()
-						.toString(), new RequestPasswordResetCallback() {
-					public void done(AVException e) {
-						if (e == null) {
-							Toast.makeText(activity,
-									R.string.forget_password_send_email,
-									Toast.LENGTH_LONG).show();
-							Intent LoginIntent = new Intent(activity,
-									LoginActivity.class);
-							startActivity(LoginIntent);
-							finish();
-						} else {
-							showError(activity
-									.getString(R.string.forget_password_email_error));
-						}
-					}
-				});
-			} else {
+      String email = emailText.getText()
+          .toString();
+      if (email != null) {
+        RequestPasswordResetCallback callback=new RequestPasswordResetCallback() {
+          public void done(AVException e) {
+            if (e == null) {
+              Toast.makeText(activity,
+                  R.string.forget_password_send_email,
+                  Toast.LENGTH_LONG).show();
+              Intent LoginIntent = new Intent(activity,
+                  LoginActivity.class);
+              startActivity(LoginIntent);
+              finish();
+            } else {
+              showError(activity
+                  .getString(R.string.forget_password_email_error));
+            }
+          }
+        };
+        AVService.requestPasswordReset(email, callback);
+      } else {
 				showError(activity.getResources().getString(
 						R.string.error_register_email_address_null));
 			}
 		}
 	};
 
-	@Override
+  @Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if (item.getItemId() == android.R.id.home) {
 			Intent LoginIntent = new Intent(this, LoginActivity.class);

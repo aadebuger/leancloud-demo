@@ -55,6 +55,14 @@ public class ChatDemoMessage {
     this.messageFrom = messageFrom;
   }
 
+  public void setFromPeerId(String peerId){
+    this.internalMessage.setFromPeerId(peerId);
+  }
+
+  public String getFromPeerId(){
+    return internalMessage.getFromPeerId();
+  }
+
   public String getGroupId() {
     return this.internalMessage.getGroupId();
   }

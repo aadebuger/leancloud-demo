@@ -68,6 +68,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     currentInstallation.put("name", name);
 
+
     currentInstallation.saveInBackground();
 
     // Intent intent = new Intent(this, HeartBeatActivity.class);

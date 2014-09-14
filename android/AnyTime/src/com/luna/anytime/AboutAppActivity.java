@@ -20,7 +20,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 
 public class AboutAppActivity extends AnyTimeActivity {
@@ -38,20 +37,21 @@ public class AboutAppActivity extends AnyTimeActivity {
 		mUserResponseListView = (ListView) findViewById(R.id.listView_user_back);
 		submitButton.setOnClickListener(buttonListener);
 
+    FindCallback<AVObject> findCallback=new FindCallback<AVObject>() {
+      public void done(List<AVObject> avObjects, AVException e) {
+        if (e == null) {
+          Message msg = new Message();
+          msg.what = 3;
+          msg.obj = avObjects;
+          mHandler.sendMessage(msg);
+        } else {
+          showError(activity.getString(R.string.network_error));
+        }
+      }
+    };
 		AVQuery<AVObject> query = new AVQuery<AVObject>("SuggestionByUser");
 		query.whereEqualTo("UserObjectId", getUserId());
-		query.findInBackground(new FindCallback<AVObject>() {
-			public void done(List<AVObject> avObjects, AVException e) {
-				if (e == null) {
-					Message msg = new Message();
-					msg.what = 3;
-					msg.obj = avObjects;
-					mHandler.sendMessage(msg);
-				} else {
-					showError(activity.getString(R.string.network_error));
-				}
-			}
-		});
+		query.findInBackground(findCallback);
 	}
 
 	OnClickListener buttonListener = new OnClickListener() {
@@ -59,23 +59,22 @@ public class AboutAppActivity extends AnyTimeActivity {
 		@Override
 		public void onClick(View arg0) {
 			// TODO Auto-generated method stub
-			AVObject doing = new AVObject("SuggestionByUser");
-			doing.put("UserObjectId", getUserId());
-			doing.put("UserSuggestion", submitEditText.getText().toString());
-			doing.saveInBackground(new SaveCallback() {
-				@Override
-				public void done(AVException e) {
-					if (e == null) {
-						mHandler.obtainMessage(1).sendToTarget();
-					} else {
-						mHandler.obtainMessage(2).sendToTarget();
-					}
-				}
-			});
+      SaveCallback saveCallback=new SaveCallback() {
+        @Override
+        public void done(AVException e) {
+          if (e == null) {
+            mHandler.obtainMessage(1).sendToTarget();
+          } else {
+            mHandler.obtainMessage(2).sendToTarget();
+          }
+        }
+      };
+      String advice = submitEditText.getText().toString();
+      AVService.createAdvice(getUserId(), advice, saveCallback);
 		}
 	};
 
-	@SuppressLint("HandlerLeak")
+  @SuppressLint("HandlerLeak")
 	private Handler mHandler = new Handler() {
 		@SuppressWarnings("unchecked")
 		public void handleMessage(Message msg) {

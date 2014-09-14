@@ -18,6 +18,5 @@ public class PushDemoApp extends Application {
         "7gd2zom3ht3vx6jkcmaamm1p2pkrn8hdye2pn4qjcwux1hl1");
     // 启用崩溃错误统计
     AVAnalytics.enableCrashReport(this.getApplicationContext(), true);
-
   }
 }
