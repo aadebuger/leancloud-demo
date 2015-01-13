@@ -1,9 +1,3 @@
-# LeanCloud 示例项目代码
-
-这个项目包括所有的 LeanCloud 开放出来的示例项目，按照所使用的 SDK 平台分目录存放。
-
-这些项目来源于 LeanCloud 工程师，以及 LeanCloud 开发者的贡献。
-
 ## Deprecated
 本项目分成了下面4个项目，请前往获得最新版本，
 
