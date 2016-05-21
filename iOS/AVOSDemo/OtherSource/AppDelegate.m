@@ -14,7 +14,7 @@
 #import <AVOSCloudSNS/AVOSCloudSNS.h>
 
 #import "Student.h"
-
+#import "CustomURLProtocol.h"
 #warning 请替换成自己的id和key 这样可以控制台中看到数据变化 https://cn.avoscloud.com/applist.html
 #define AVOSCloudAppID  @"ohqhxu3mgoj2eyj6ed02yliytmbes3mwhha8ylnc215h0bgk"
 #define AVOSCloudAppKey @"6j8fuggqkbc5m86b8mp4pf2no170i5m7vmax5iypmi72wldc"
@@ -31,7 +31,8 @@
     //统计应用启动情况
     [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
-    
+    [NSURLProtocol registerClass:[CustomURLProtocol class]];
+
     
     /* 重要! 注册子类 App生命周期内 只需要执行一次即可*/
 #warning 为了引起你的注意! 如果明白了用法可以删除这行

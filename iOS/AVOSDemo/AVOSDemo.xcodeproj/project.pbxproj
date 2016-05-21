@@ -27,6 +27,7 @@
 		1FAA7D7C1859B00300A2065B /* AVQueryBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA7D7B1859B00300A2065B /* AVQueryBasic.m */; };
 		1FAA7D7F1859BB5600A2065B /* AVFileBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA7D7E1859BB5600A2065B /* AVFileBasic.m */; };
 		1FAA7D821859BC7500A2065B /* AVSubclassAdvanced.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA7D811859BC7500A2065B /* AVSubclassAdvanced.m */; };
+		8669ECAF1B67E4DD002A87D9 /* CustomURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 8669ECAE1B67E4DD002A87D9 /* CustomURLProtocol.m */; };
 		8C00F7801945653300E1F7BD /* AVSearchQueryBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C00F77F1945653300E1F7BD /* AVSearchQueryBasic.m */; };
 		8C00F78319458F5E00E1F7BD /* SearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C00F78219458F5E00E1F7BD /* SearchResultController.m */; };
 		8C00F7881945B69000E1F7BD /* PBWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C00F7871945B69000E1F7BD /* PBWebViewController.m */; };
@@ -73,6 +74,8 @@
 		1FAA7D7E1859BB5600A2065B /* AVFileBasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVFileBasic.m; sourceTree = "<group>"; };
 		1FAA7D801859BC7500A2065B /* AVSubclassAdvanced.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVSubclassAdvanced.h; sourceTree = "<group>"; };
 		1FAA7D811859BC7500A2065B /* AVSubclassAdvanced.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVSubclassAdvanced.m; sourceTree = "<group>"; };
+		8669ECAD1B67E4DD002A87D9 /* CustomURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomURLProtocol.h; path = ../CustomURLProtocol.h; sourceTree = "<group>"; };
+		8669ECAE1B67E4DD002A87D9 /* CustomURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomURLProtocol.m; path = ../CustomURLProtocol.m; sourceTree = "<group>"; };
 		8C00F77E1945653300E1F7BD /* AVSearchQueryBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVSearchQueryBasic.h; sourceTree = "<group>"; };
 		8C00F77F1945653300E1F7BD /* AVSearchQueryBasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVSearchQueryBasic.m; sourceTree = "<group>"; };
 		8C00F78119458F5E00E1F7BD /* SearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultController.h; sourceTree = "<group>"; };
@@ -123,6 +126,8 @@
 		1F3AF9A41828C6DE003277B5 = {
 			isa = PBXGroup;
 			children = (
+				8669ECAD1B67E4DD002A87D9 /* CustomURLProtocol.h */,
+				8669ECAE1B67E4DD002A87D9 /* CustomURLProtocol.m */,
 				1F66B209185EF7BA0034AA65 /* README.md */,
 				1F3AF9B61828C6DE003277B5 /* AVOSDemo */,
 				1F1E0FB518585AD200E9097E /* OtherSource */,
@@ -320,6 +325,7 @@
 				8C00F78319458F5E00E1F7BD /* SearchResultController.m in Sources */,
 				1F53C8C61862C6A900FFCBB9 /* AVRelationAdvanced.m in Sources */,
 				1F88944718682291007A9A4B /* AVAnalyticsBasic.m in Sources */,
+				8669ECAF1B67E4DD002A87D9 /* CustomURLProtocol.m in Sources */,
 				1F53C8C318619B5000FFCBB9 /* Student.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
